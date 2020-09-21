@@ -8,7 +8,7 @@ public class HousieTicketProducer {
     public static void main(String[] args) {
         int[][] rawTicket = new TicketGenerator().getTicketSize();
         new TicketPositionSelector().getHalfCookedTicket(rawTicket);
-        new TicketFiller().execute(rawTicket);
+        new TicketFiller().getBakedTicket(rawTicket);
         TicketPrinter.printTicket(rawTicket);
     }
 }

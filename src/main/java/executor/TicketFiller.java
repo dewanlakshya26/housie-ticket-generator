@@ -10,7 +10,7 @@ public class TicketFiller {
     Logger logger = Logger.getLogger(TicketFiller.class.getName());
     private int dummyValue = getConstraint("ticket.dummy.value");
 
-    public void execute(int[][] rawTicket) {
+    public void getBakedTicket(int[][] rawTicket) {
         logger.info("printing random numbers starting...");
         for (int i = 0; i < rawTicket.length; i++) {
             for (int j = 0; j < rawTicket[0].length; j++) {
