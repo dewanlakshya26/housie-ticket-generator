@@ -22,6 +22,7 @@ public class TicketPositionSelector {
         logger.info("selecting positions for random numbers");
         int[][] dupligateRawTicket = rawTicket.clone();
         int primary = (int) (Math.random() * rawTicket.length);
+        logger.info("primary position is" + primary);
         int[][] slaveArray = getSlaveArray(dupligateRawTicket, primary);
         for (int[] row : slaveArray) {
             populatSlaveRow(row);
@@ -32,7 +33,6 @@ public class TicketPositionSelector {
     }
 
     private void populateMasterArray(int[][] rawTicket, int primary, int[][] slaveArray) {
-        System.out.println("primary  " + primary);
         int row_length = rawTicket.length;
         int column_length = rawTicket[0].length;
         int count = 0;
