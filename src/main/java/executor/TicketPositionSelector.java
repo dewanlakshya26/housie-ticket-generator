@@ -12,7 +12,6 @@ import java.util.Random;
 public class TicketPositionSelector {
 
 
-    private int rowConstraint = getConstraint("ticket.row.constratnt");
     private int columsConstraint = getConstraint("ticket.column.constratnt");
     private int dummyValue = getConstraint("ticket.dummy.value");
     Random randomIndexGenerator = new Random();
@@ -26,7 +25,6 @@ public class TicketPositionSelector {
             populatSlaveRow(row);
         }
         populateMasterArray(rawTicket, primary, slaveArray);
-//        populateMasterArray(slaveArray, )
         return new int[2][2];
     }
 
@@ -49,8 +47,6 @@ public class TicketPositionSelector {
 
     private int[][] getSlaveArray(int[][] raw2Ticket, int primary) {
         raw2Ticket[primary] = raw2Ticket[raw2Ticket.length - 1];
-//        System.out.println(Arrays.toString(raw2Ticket));
-//        System.out.println(Arrays.deepToString(Arrays.copyOf(raw2Ticket, raw2Ticket.length - 1)));
         return Arrays.copyOf(raw2Ticket, raw2Ticket.length - 1);
 
     }
@@ -62,13 +58,10 @@ public class TicketPositionSelector {
             randomValues.add(generateRandomIndexes(rowLength, randomIndexGenerator));
         }
         randomValues.forEach(randomIndex -> row[randomIndex] = dummyValue);
-        System.out.println(Arrays.toString(row)+ "hiiiiii");
-
     }
 
     private Integer generateRandomIndexes(int rowLength, Random randomIndexGenerator) {
         return randomIndexGenerator.nextInt(rowLength);
-
     }
 
 
