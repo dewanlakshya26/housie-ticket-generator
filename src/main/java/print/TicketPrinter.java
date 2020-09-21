@@ -11,7 +11,7 @@ public class TicketPrinter {
                 if (ticket[i][j] == 0) {
                     System.out.print("  ");
                 } else if (j < ticket[0].length - 1) {
-                    System.out.print( ticket[i][j] + " ");
+                    System.out.print(ticket[i][j] + " ");
                 } else
                     System.out.print(" " + ticket[i][j]);
             }

@@ -1,23 +1,29 @@
 package executor;
 
 import java.util.Random;
+import java.util.logging.Logger;
+
+import static executor.TicketPositionSelector.getConstraint;
 
 public class TicketFiller {
     Random random = new Random();
+    Logger logger = Logger.getLogger(TicketFiller.class.getName());
+    private int dummyValue = getConstraint("ticket.dummy.value");
 
     public void execute(int[][] rawTicket) {
+        logger.info("printing random numbers starting...");
         for (int i = 0; i < rawTicket.length; i++) {
             for (int j = 0; j < rawTicket[0].length; j++) {
-                if (rawTicket[i][j] == -1)
+                if (rawTicket[i][j] == dummyValue)
                     rawTicket[i][j] = getRandomNumberUsingInts(j);
             }
-
         }
+        logger.info("printing random numbers completed.");
     }
 
     public int[] getRangeForNumber(int number) {
-        if (number> 9){
-            number = number/10;
+        if (number > 9) {
+            number = number / 10;
         }
 
         switch (number) {
@@ -40,7 +46,7 @@ public class TicketFiller {
             case 8:
                 return new int[]{81, 91};
             case 9:
-                return new int [] {91, 101};
+                return new int[]{91, 101};
         }
         return new int[]{91, 101};
 
